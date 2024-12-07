@@ -1,33 +1,14 @@
-import {MouseEvent, useState} from "react";
+import ListGroup from "./components/ListGroup.tsx";
 function App() {
-    let items = [
+    const items = [
         'New York',
         'San Francisco',
         'Tokyo',
         'London',
         'Paris'
     ];
-    const [selectedIndex, setSelectedIndex] = useState()
-    items = [];
-    const  handleClick=(event: MouseEvent)=>{
-        console.log(event);
-    }
-    const getMessage = () => {
-        return items.length === 0 ? <p>No Item Found</p> : null;
-    }
-    return <>
-        <h1>List</h1>
-        {getMessage()}
-        {items.length === 0 && <p>No Item Found</p>}
-        <ul className="list-group">
-            {items.map((item , index) => (
-                <li className={setSelectedIndex(index)  ? "list-group-item active" :"list-group-item"}
-                    key={item} onClick={handleClick}>
-                    {item}
-                </li>
-            ))}
-        </ul>
-    </>
+    return <h1><ListGroup items={items} heading={"Cities"}></ListGroup></h1>;
+
 }
 
 export default App
