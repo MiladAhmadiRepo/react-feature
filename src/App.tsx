@@ -44,17 +44,26 @@ function App() {
     // const handleClick=()=>{
     //     setCustomer({...customer,address: {...customer.address,zipcode: '8888'}})
     // }
-    //-------------------------------------- update array  ---------------------------------------------------------------
-    const [tags, setTags] = useState(['happy', 'cheerful']);
+    // //-------------------------------------- update array  ---------------------------------------------------------------
+    // const [tags, setTags] = useState(['happy', 'cheerful']);
+    // const handleClick = () => {
+    //     //add
+    //     setTags([...tags, 'exciting']);
+    //     //remove
+    //     setTags(tags.filter((tag) => tag !== 'cheerful'))
+    //     //update
+    //     setTags(tags.map((tag) => tag === 'happy' ? 'happiness' : tag));
+    // }
+    //-------------------------------------- update array objects ---------------------------------------------------------------
+    const [bugs, setBugs] = useState([
+        {id:1 , title:"bug 1",fixed : false},
+        {id:2 , title:"bug 2",fixed : true},
+    ]);
     const handleClick = () => {
-        //add
-        setTags([...tags, 'exciting']);
-        //remove
-        setTags(tags.filter((tag) => tag !== 'cheerful'))
-        //update
-        setTags(tags.map((tag) => tag === 'happy' ? 'happiness' : tag));
-    }
 
+        //update
+        setBugs(bugs.map((bug) => bug.id === 1 ? {...bug,fixed: true}:bug));
+    }
 }
 
 export default App
