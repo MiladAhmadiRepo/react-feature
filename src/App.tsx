@@ -30,9 +30,20 @@ function App() {
     //                 children={"Click On Me"}></BaseButton>
     // </div>
     //-------------------------------------- heart button ---------------------------------------------------------------
-    return <div>
-        <Like onClick={() => console.log('clicked')}></Like>
-    </div>
+    // return <div>
+    //     <Like onClick={() => console.log('clicked')}></Like>
+    // </div>
+    //-------------------------------------- update nested objects  ---------------------------------------------------------------
+    const [customer, setCustomer] = useState({
+        name : 'John',
+        address: {
+            city: 'San Francisco',
+            zipcode: '12345',
+        }
+    });
+    const handleClick=()=>{
+        setCustomer({...customer,address: {...customer.address,zipcode: '8888'}})
+    }
 
 }
 
