@@ -34,15 +34,25 @@ function App() {
     //     <Like onClick={() => console.log('clicked')}></Like>
     // </div>
     //-------------------------------------- update nested objects  ---------------------------------------------------------------
-    const [customer, setCustomer] = useState({
-        name : 'John',
-        address: {
-            city: 'San Francisco',
-            zipcode: '12345',
-        }
-    });
-    const handleClick=()=>{
-        setCustomer({...customer,address: {...customer.address,zipcode: '8888'}})
+    // const [customer, setCustomer] = useState({
+    //     name : 'John',
+    //     address: {
+    //         city: 'San Francisco',
+    //         zipcode: '12345',
+    //     }
+    // });
+    // const handleClick=()=>{
+    //     setCustomer({...customer,address: {...customer.address,zipcode: '8888'}})
+    // }
+    //-------------------------------------- update array  ---------------------------------------------------------------
+    const [tags, setTags] = useState(['happy', 'cheerful']);
+    const handleClick = () => {
+        //add
+        setTags([...tags, 'exciting']);
+        //remove
+        setTags(tags.filter((tag) => tag !== 'cheerful'))
+        //update
+        setTags(tags.map((tag) => tag === 'happy' ? 'happiness' : tag));
     }
 
 }
