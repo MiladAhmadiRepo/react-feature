@@ -5,7 +5,7 @@ import BaseButton from "./components/BaseButton.tsx";
 import {useState} from "react";
 import ListGroupCss from "./components/ListGroup";
 import ListGroup from "./components/ListGroup/ListGroup.tsx";
-
+import "./App.css"
 function App() {
     const items = [
         'New York',
