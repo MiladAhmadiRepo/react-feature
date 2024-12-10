@@ -28,7 +28,7 @@ function  ListGroup({items,heading,onSelectItem}: ListGroupProps) {
     return <>
         <h1>{heading}</h1>
         {items.length === 0 && <p>No Item Found</p>}
-        <List>
+        <List style={{backgroundColor: "aqua"}}>
             {items.map((item , index) => (
                 <ListItem className={selectedIndex==index  ? "list-group-item active" :"list-group-item"}
                     key={item} onClick={()=>{
