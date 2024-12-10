@@ -1,7 +1,7 @@
 // import ListGroup from "./components/ListGroup.tsx";
 
 import Alert from "./components/Alert.tsx";
-import BaseButton from "./components/BaseButton.tsx";
+import BaseButton from "./components/BaseButton/BaseButton.tsx";
 import {useState} from "react";
 import ListGroupCss from "./components/ListGroup";
 import { BsArrowDownRightSquareFill } from "react-icons/bs";
@@ -18,7 +18,9 @@ function App() {
     ];
     return < ><BsArrowDownRightSquareFill></BsArrowDownRightSquareFill> <h1>
             <ListGroup items={items} heading={"Cities"} onSelectItem={item => 1}></ListGroup>
-        </h1></>
+        </h1>
+        <BaseButton onClick={()=>console.log('click on button')} color={'primary'}>Click on Me</BaseButton>;
+    </>
     //-------------------------------------- click button ---------------------------------------------------------------
     // const [alertVisible, setAlertVisible] = useState(false);
     // return <div>
