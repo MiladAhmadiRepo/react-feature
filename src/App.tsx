@@ -11,6 +11,7 @@ import Like from "./components/LikeButton/Like.tsx";
 import {Immer, produce} from "immer";
 import {NavBar} from "./components/CardItems/NavBar.tsx";
 import {Card} from "./components/CardItems/Card.tsx";
+
 function App() {
     // const items = [
     //     'New York',
@@ -83,12 +84,43 @@ function App() {
     //       <button onClick={handleClick}> Click Me</button>
     //  </div>
     //-------------------------------------- sharing state between components ---------------------------------------------------------------
-    const [cardItems, setCardItems] = useState(["Product1" ,"Product2"]);
-    return <>
-        <NavBar cardItemsCount={cardItems.length}></NavBar>
-        <Card cardItems={cardItems} onClear={() => setCardItems([])}></Card>
+    // const [cardItems, setCardItems] = useState(["Product1" ,"Product2"]);
+    // return <>
+    //     <NavBar cardItemsCount={cardItems.length}></NavBar>
+    //     <Card cardItems={cardItems} onClear={() => setCardItems([])}></Card>
+    //
+    // </>
+    //-------------------------------------- exercise  updating state ---------------------------------------------------------------
+    const [game, setGame] = useState({
+        id: 1,
+        player: {
+            name: "John"
+        },
+    })
+    const handleClick1 = () => {
+        setGame({...game, player: {...game.player, name: 'Bob'}})
+    }
+    const [pizza, setPizza] = useState({
+        name: 'Spicy Pepperoni',
+        toppings: ['Mushroom']
+    })
+    const handleClick2 = () => {
+        setPizza({...pizza, toppings: [...pizza.toppings, 'Cheese']})
+    }
+    const [cart, setCart] = useState({
+        discount: 1,
+        items: [
+            {id: 1, title: 'product1', quantity: 1},
+            {id: 2, title: 'product2', quantity: 1},
+        ]
+    })
+    const handleClick3 = () => {
+        setCart({
+            ...cart,
+            items: cart.items.map((item) => item.id === 1 ? {...item, quantity: item.quantity + 1} : item)
+        })
+    }
 
-    </>
 }
 
 export default App
