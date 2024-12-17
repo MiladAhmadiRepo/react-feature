@@ -11,6 +11,7 @@ import Like from "./components/LikeButton/Like.tsx";
 import {Immer, produce} from "immer";
 import {NavBar} from "./components/CardItems/NavBar.tsx";
 import {Card} from "./components/CardItems/Card.tsx";
+import {ExpandableText} from "./components/ExpandableText/ExpandableText.tsx";
 
 function App() {
     // const items = [
@@ -91,36 +92,45 @@ function App() {
     //
     // </>
     //-------------------------------------- exercise  updating state ---------------------------------------------------------------
-    const [game, setGame] = useState({
-        id: 1,
-        player: {
-            name: "John"
-        },
-    })
-    const handleClick1 = () => {
-        setGame({...game, player: {...game.player, name: 'Bob'}})
-    }
-    const [pizza, setPizza] = useState({
-        name: 'Spicy Pepperoni',
-        toppings: ['Mushroom']
-    })
-    const handleClick2 = () => {
-        setPizza({...pizza, toppings: [...pizza.toppings, 'Cheese']})
-    }
-    const [cart, setCart] = useState({
-        discount: 1,
-        items: [
-            {id: 1, title: 'product1', quantity: 1},
-            {id: 2, title: 'product2', quantity: 1},
-        ]
-    })
-    const handleClick3 = () => {
-        setCart({
-            ...cart,
-            items: cart.items.map((item) => item.id === 1 ? {...item, quantity: item.quantity + 1} : item)
-        })
-    }
-
+    // const [game, setGame] = useState({
+    //     id: 1,
+    //     player: {
+    //         name: "John"
+    //     },
+    // })
+    // const handleClick1 = () => {
+    //     setGame({...game, player: {...game.player, name: 'Bob'}})
+    // }
+    // const [pizza, setPizza] = useState({
+    //     name: 'Spicy Pepperoni',
+    //     toppings: ['Mushroom']
+    // })
+    // const handleClick2 = () => {
+    //     setPizza({...pizza, toppings: [...pizza.toppings, 'Cheese']})
+    // }
+    // const [cart, setCart] = useState({
+    //     discount: 1,
+    //     items: [
+    //         {id: 1, title: 'product1', quantity: 1},
+    //         {id: 2, title: 'product2', quantity: 1},
+    //     ]
+    // })
+    // const handleClick3 = () => {
+    //     setCart({
+    //         ...cart,
+    //         items: cart.items.map((item) => item.id === 1 ? {...item, quantity: item.quantity + 1} : item)
+    //     })
+    // }
+    //-------------------------------------- Expandable text ---------------------------------------------------------------
+    return <ExpandableText maxChars={100}  >
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    </ExpandableText>
 }
 
 export default App
