@@ -12,6 +12,7 @@ import {Immer, produce} from "immer";
 import {NavBar} from "./components/CardItems/NavBar.tsx";
 import {Card} from "./components/CardItems/Card.tsx";
 import {ExpandableText} from "./components/ExpandableText/ExpandableText.tsx";
+import {Form} from "./components/Form/Form.tsx";
 
 function App() {
     // const items = [
@@ -122,15 +123,17 @@ function App() {
     //     })
     // }
     //-------------------------------------- Expandable text ---------------------------------------------------------------
-    return <ExpandableText maxChars={100}  >
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-        Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
-    </ExpandableText>
+    // return <ExpandableText maxChars={100}  >
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
+    // </ExpandableText>
+    //-------------------------------------- Form ---------------------------------------------------------------
+    return  <Form></Form>
 }
 
 export default App
