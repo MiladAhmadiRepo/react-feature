@@ -1,20 +1,15 @@
 // @flow
-import {FormEvent, useRef} from "react";
+import {FormEvent, useRef, useState} from "react";
 
 type Props = {};
 
 export function Form(props?: Props) {
-    const nameRef = useRef<HTMLInputElement>(null);
-    const ageRef = useRef<HTMLInputElement>(null);
-    let person= {name: '', age: 0};
+    const [person, setPerson] = useState({
+        name: '',
+        age: 0
+    })
     const handleSubmmit = (event: FormEvent) => {
         event.preventDefault();
-        if(nameRef.current!==null) {
-            person.name = nameRef.current.value;
-        }
-        if(ageRef.current!==null) {
-            person.age = +ageRef.current.value;
-        }
         console.log(person);
 
     }
@@ -22,11 +17,17 @@ export function Form(props?: Props) {
         <form onSubmit={handleSubmmit}>
             <div className="Mb-3">
                 <label htmlFor="name" className="form-label">Name</label>
-                <input id="name" ref={nameRef} type="text" className="form-control"/>
+                <input id="name" onChange={(event) => {
+                    setPerson({...person, name: event.target.value})
+                }} type="text" className="form-control"/>
             </div>
             <div className="Mb-3 mt-3">
                 <label htmlFor="age" className="form-label">Age</label>
-                <input id="age" type="number" className="from-control"/>
+                <input id="age"
+                       onChange={(event) => {
+                           setPerson({...person, age: +event.target.value})
+                       }}
+                       type="number" className="from-control"/>
             </div>
             <div className="Mb-3 mt-3">
                 <button className="btn btn-primary" type="submit">Submit</button>
