@@ -13,6 +13,7 @@ import {NavBar} from "./components/CardItems/NavBar.tsx";
 import {Card} from "./components/CardItems/Card.tsx";
 import {ExpandableText} from "./components/ExpandableText/ExpandableText.tsx";
 import {Form} from "./components/Form/Form.tsx";
+import { ExpenseListForm } from "./components/Form/ExpenseListForm.tsx";
 
 function App() {
     // const items = [
@@ -133,7 +134,7 @@ function App() {
     //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
     // </ExpandableText>
     //-------------------------------------- Form ---------------------------------------------------------------
-    return      <Form></Form>
+    return      <ExpenseListForm></ExpenseListForm>
 }
 
 export default App
