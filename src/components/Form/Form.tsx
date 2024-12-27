@@ -19,7 +19,7 @@ export function Form(props?: Props) {
                 <label htmlFor="name" className="form-label">Name</label>
                 <input id="name" onChange={(event) => {
                     setPerson({...person, name: event.target.value})
-                }} type="text" className="form-control"/>
+                }} type="text" className="form-control" value={person.name}/>
             </div>
             <div className="Mb-3 mt-3">
                 <label htmlFor="age" className="form-label">Age</label>
@@ -27,7 +27,7 @@ export function Form(props?: Props) {
                        onChange={(event) => {
                            setPerson({...person, age: +event.target.value})
                        }}
-                       type="number" className="from-control"/>
+                       type="number" className="from-control" value={person.age}/>
             </div>
             <div className="Mb-3 mt-3">
                 <button className="btn btn-primary" type="submit">Submit</button>
