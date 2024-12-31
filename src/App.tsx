@@ -16,7 +16,7 @@ import {Form} from "./components/Form/Form.tsx";
 import {ExpenseListForm} from "./components/Form/ExpenseListForm.tsx";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList.tsx";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter.tsx";
-
+export const categories = ['Utilities', 'Groceries', 'Entertainment'];
 function App() {
     // const items = [
     //     'New York',
@@ -136,6 +136,7 @@ function App() {
     //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
     // </ExpandableText>
     //-------------------------------------- Form ---------------------------------------------------------------
+
     const [expences, setExpences] = useState([
         {id: 1, desciption: 'buy a car', amount: 10, category: 'Utilities'},
         {id: 2, desciption: 'buy a car', amount: 10, category: 'Utilities'},
