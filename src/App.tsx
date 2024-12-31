@@ -14,6 +14,7 @@ import {Card} from "./components/CardItems/Card.tsx";
 import {ExpandableText} from "./components/ExpandableText/ExpandableText.tsx";
 import {Form} from "./components/Form/Form.tsx";
 import { ExpenseListForm } from "./components/Form/ExpenseListForm.tsx";
+import ExpenseList from "./components/expense-tracker/components/ExpenseList.tsx";
 
 function App() {
     // const items = [
@@ -134,7 +135,19 @@ function App() {
     //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
     // </ExpandableText>
     //-------------------------------------- Form ---------------------------------------------------------------
-    return      <ExpenseListForm></ExpenseListForm>
+    const [expences, setExpences] = useState([
+        {id:1,desciption:'buy a car',amount:10,category:'utilities'},
+        {id:2,desciption:'buy a car',amount:10,category:'utilities'},
+        {id:3,desciption:'buy a car',amount:10,category:'utilities'},
+        {id:4,desciption:'buy a car',amount:10,category:'utilities'},
+    ])
+    return
+        <ExpenseList
+            expences={expences} onDelete={(id)=>
+            setExpences(expences.filter((item)=>item.id!==id))
+        }>
+
+        </ExpenseList>
 }
 
 export default App
