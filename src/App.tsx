@@ -13,8 +13,9 @@ import {NavBar} from "./components/CardItems/NavBar.tsx";
 import {Card} from "./components/CardItems/Card.tsx";
 import {ExpandableText} from "./components/ExpandableText/ExpandableText.tsx";
 import {Form} from "./components/Form/Form.tsx";
-import { ExpenseListForm } from "./components/Form/ExpenseListForm.tsx";
+import {ExpenseListForm} from "./components/Form/ExpenseListForm.tsx";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList.tsx";
+import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter.tsx";
 
 function App() {
     // const items = [
@@ -136,18 +137,25 @@ function App() {
     // </ExpandableText>
     //-------------------------------------- Form ---------------------------------------------------------------
     const [expences, setExpences] = useState([
-        {id:1,desciption:'buy a car',amount:10,category:'utilities'},
-        {id:2,desciption:'buy a car',amount:10,category:'utilities'},
-        {id:3,desciption:'buy a car',amount:10,category:'utilities'},
-        {id:4,desciption:'buy a car',amount:10,category:'utilities'},
+        {id: 1, desciption: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 2, desciption: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 3, desciption: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 4, desciption: 'buy a car', amount: 10, category: 'Utilities'},
     ])
-    return
-        <ExpenseList
-            expences={expences} onDelete={(id)=>
-            setExpences(expences.filter((item)=>item.id!==id))
-        }>
+    const [selectedCategory, setSelectedCategory] = useState('')
+    const visibleExpences = selectedCategory ? expences.filter((item) => item.category === selectedCategory) : expences
+    return <>
 
+        <div className="Mb-3">
+
+            <ExpenseFilter onSelectCategory={(category)=>setSelectedCategory(category)}></ExpenseFilter>
+        </div>
+        <ExpenseList
+            expences={visibleExpences} onDelete={(id) =>
+            setExpences(expences.filter((item) => item.id !== id))
+        }>
         </ExpenseList>
+    </>
 }
 
 export default App
