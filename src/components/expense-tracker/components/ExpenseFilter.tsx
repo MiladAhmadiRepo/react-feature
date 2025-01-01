@@ -1,4 +1,6 @@
 import React from 'react';
+import {s} from "../../../App.tsx";
+import categories from "../Categories.tsx";
 
 interface  Props{
     onSelectCategory: (category: string) => void;
@@ -9,9 +11,8 @@ function ExpenseFilter({onSelectCategory}:Props) {
             onChange={e => onSelectCategory(e.target.value)
         }>
             <option value="">All Categories</option>
-            <option value="Utilities">Utilities</option>
-            <option value="Groceries">Groceries</option>
-            <option value="Entertaiment">Entertaiment</option>
+            {categories.map((category) =>
+                <option key={category} value={category}>{category}</option>)}
         </select>
     );
 }

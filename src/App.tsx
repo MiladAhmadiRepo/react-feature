@@ -16,7 +16,7 @@ import {Form} from "./components/Form/Form.tsx";
 import {ExpenseListForm} from "./components/Form/ExpenseListForm.tsx";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList.tsx";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter.tsx";
-export const categories = ['Utilities', 'Groceries', 'Entertainment'];
+import ExpenseForm from "./components/expense-tracker/components/ExpenseForm.tsx";
 function App() {
     // const items = [
     //     'New York',
@@ -138,16 +138,16 @@ function App() {
     //-------------------------------------- Form ---------------------------------------------------------------
 
     const [expences, setExpences] = useState([
-        {id: 1, desciption: 'buy a car', amount: 10, category: 'Utilities'},
-        {id: 2, desciption: 'buy a car', amount: 10, category: 'Utilities'},
-        {id: 3, desciption: 'buy a car', amount: 10, category: 'Utilities'},
-        {id: 4, desciption: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 1, description: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 2, description: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 3, description: 'buy a car', amount: 10, category: 'Utilities'},
+        {id: 4, description: 'buy a car', amount: 10, category: 'Utilities'},
     ])
     const [selectedCategory, setSelectedCategory] = useState('')
     const visibleExpences = selectedCategory ? expences.filter((item) => item.category === selectedCategory) : expences
     return <>
-
-        <div className="Mb-3">
+        <ExpenseForm onSubmit={(newExpense)=> setExpences([...expences,{...newExpense,id:expences.length+1}])}></ExpenseForm>
+        <div className="mb-3">
 
             <ExpenseFilter onSelectCategory={(category)=>setSelectedCategory(category)}></ExpenseFilter>
         </div>

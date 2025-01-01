@@ -49,13 +49,13 @@ export function ExpenseListForm(props?: Props) {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmitFunc)}>
-                <div className="Mb-3">
+                <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
                     <input id="description"  {...register("description",)}
                            type="text" className="form-control"/>
                     {errors.description && <p className="text-danger">{errors.description?.message}</p>}
                 </div>
-                <div className="Mb-3 mt-3">
+                <div className="mb-3 mt-3">
                     <label htmlFor="amount" className="form-label">Amount</label>
                     <input id="amount"
                            {...register("amount", {valueAsNumber: true})}
