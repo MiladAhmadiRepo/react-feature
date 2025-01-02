@@ -17,6 +17,7 @@ import {ExpenseListForm} from "./components/Form/ExpenseListForm.tsx";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList.tsx";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter.tsx";
 import ExpenseForm from "./components/expense-tracker/components/ExpenseForm.tsx";
+import {ProductList} from "./components/UseEffectTest/ProductList.tsx";
 function App() {
     // const items = [
     //     'New York',
@@ -135,27 +136,44 @@ function App() {
     //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
     //     Things, scholars, and separate moons will always protect them.Cur racana mori?Captains reproduce from patterns like clear lieutenant commanders.
     // </ExpandableText>
-    //-------------------------------------- Form ---------------------------------------------------------------
-
-    const [expences, setExpences] = useState([
-        {id: 1, description: 'buy a car', amount: 10, category: 'Utilities'},
-        {id: 2, description: 'buy a car', amount: 10, category: 'Utilities'},
-        {id: 3, description: 'buy a car', amount: 10, category: 'Utilities'},
-        {id: 4, description: 'buy a car', amount: 10, category: 'Utilities'},
-    ])
-    const [selectedCategory, setSelectedCategory] = useState('')
-    const visibleExpences = selectedCategory ? expences.filter((item) => item.category === selectedCategory) : expences
+    //-------------------------------------- expense-tracker ---------------------------------------------------------------
+    //
+    // const [expences, setExpences] = useState([
+    //     {id: 1, description: 'buy a car', amount: 10, category: 'Utilities'},
+    //     {id: 2, description: 'buy a car', amount: 10, category: 'Utilities'},
+    //     {id: 3, description: 'buy a car', amount: 10, category: 'Utilities'},
+    //     {id: 4, description: 'buy a car', amount: 10, category: 'Utilities'},
+    // ])
+    // const [selectedCategory, setSelectedCategory] = useState('')
+    // const visibleExpences = selectedCategory ? expences.filter((item) => item.category === selectedCategory) : expences
+    // return <>
+    //     <ExpenseForm onSubmit={(newExpense)=> setExpences([...expences,{...newExpense,id:expences.length+1}])}></ExpenseForm>
+    //     <div className="mb-3">
+    //
+    //         <ExpenseFilter onSelectCategory={(category)=>setSelectedCategory(category)}></ExpenseFilter>
+    //     </div>
+    //     <ExpenseList
+    //         expences={visibleExpences} onDelete={(id) =>
+    //         setExpences(expences.filter((item) => item.id !== id))
+    //     }>
+    //     </ExpenseList>
+    // </>
+    //-------------------------------------- use effect loop ---------------------------------------------------------------
+    // return <>
+    //     <div><ProductList></ProductList></div>
+    // </>
+    //-------------------------------------- use effect with change state to rerender ---------------------------------------------------------------
+    const [category, setCategory] = useState("")
     return <>
-        <ExpenseForm onSubmit={(newExpense)=> setExpences([...expences,{...newExpense,id:expences.length+1}])}></ExpenseForm>
-        <div className="mb-3">
-
-            <ExpenseFilter onSelectCategory={(category)=>setSelectedCategory(category)}></ExpenseFilter>
-        </div>
-        <ExpenseList
-            expences={visibleExpences} onDelete={(id) =>
-            setExpences(expences.filter((item) => item.id !== id))
-        }>
-        </ExpenseList>
+        <div>
+            <select className="form-select" onChange={(event)=>{
+                setCategory(event.target.value)
+            }}>
+                <option value=""></option>
+                <option value="Clothing">Clothing</option>
+                <option value="Household">Household</option>
+            </select>
+            <ProductList category={category}></ProductList></div>
     </>
 }
 
